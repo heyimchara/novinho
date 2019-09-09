@@ -6,7 +6,6 @@ require_once 'servico/validacaoServico.php';
 function adicionarCategoria(){
     if (ehPost()){
         $nome = $_POST["nome"];
-
         $erros = array();
         
 if (valida_nao_vazio($nome) != NULL){
@@ -45,8 +44,8 @@ function editar($cod_categoria){
      if (ehPost()){
        $nome = $_POST["nome"];
        
-       editarCategoria($nome);
-       redirecionar("produto/listarCategorias");
+       editarCategoria($nome, $cod_categoria);
+       redirecionar("categoria/listarCategorias");
 } else{
     $dados["categoria"] = pegarCategoriaPorId($cod_categoria);
     exibir("categoria/formulario", $dados);

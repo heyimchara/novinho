@@ -1,6 +1,4 @@
- <body>
-  
-  <style type="text/css">
+<style type="text/css">
 #backtopo {
     display: scroll;
     position: fixed;
@@ -75,7 +73,9 @@ $(document).ready(function(){
 
 </div>
 <div class="" style="padding:3%;width:28%;">
-  <input id="barra_pesquisa" type="text" placeholder = " Pesquisa..." style="margin:0px;" >
+  <form action="./produto/buscar" method="POST">
+  <input id="barra_pesquisa" type="text" name="nome" placeholder = " Pesquisa..." style="margin:0px;" >
+  </form>
 </div>
 <div class="e">
   <p style="text-align:center;"><a href="#"><img src="publico/img/logo.png"></a></p>

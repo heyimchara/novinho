@@ -8,6 +8,14 @@
         <p> Tipo de usuario: <?=$cliente['tipousuario']?></p>
         <p> Senha: <?=$cliente['senha']?></p> 
         
+        <br>
         
-        <a href="./endereco/adicionar">Cadastrar Endereço</a>
+        <a href = "./endereco/adicionar/<?=$cliente['cod_cliente']?>">Novo Endereço</a>
+
+<?php
+require_once 'visao/endereco/listar.visao.php';
+?>
+
+           
+       
    

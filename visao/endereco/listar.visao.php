@@ -1,6 +1,4 @@
-<h2>Listar Endreços</h2>
-        
-   <table class="table">
+<table class="table">
             <thead>
                 <tr>
                     <th>IdEndereco</th>
@@ -16,15 +14,10 @@
                 <td><?=$endereco['idEndereco']?></td>
                 <td><?=$endereco['logradouro']?></td>
                 <td><a href="./endereco/ver/<?=$endereco['idEndereco']?>">Ver</a></td>
-                <td><a href="./endereco/deletar/<?=$endereco['idEndereco']?>">Deletar</a></td>
+                <td><a href="./endereco/deletar/<?=$endereco['idEndereco']?>/<?=$endereco['cod_cliente']?>">Deletar</a></td>
                 <td><a href="./endereco/editar/<?=$endereco['idEndereco']?>">Editar</a></td>
             </tr>
         <?php endforeach; ?>
    </table> 
         <br>
-        <a href="./endereco/adicionar" class="btn btn-primary">Novo Endereco</a>
-        <br><br>
         
-        
-        <a href="./cliente/cadastro">Voltar ao Cadastro do Cliente</a>
-   

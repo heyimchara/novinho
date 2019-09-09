@@ -25,6 +25,15 @@ function pegarProdutoPorId($cod_produto){
     return $cadastro_produto;
 }
 
+function pegarProdutoPorNome($nome){
+    $sql = "SELECT * FROM produto WHERE upper(nome) like upper("%".$nome."%")";
+    $resultado = mysqli_query(conn(), $sql);
+    while ($linha = mysqli_fetch_assoc($resultado)){
+        $produtos[] = $linha;
+    }
+    return $produtos;
+}
+
 function deletarProduto($cod_produto){
     $sql = "DELETE FROM produto WHERE cod_produto = $cod_produto";
     $resultado = mysqli_query($cnx = conn(), $sql);
@@ -33,7 +42,6 @@ function deletarProduto($cod_produto){
     }
       return 'Produto deletado com sucesso!';
 }
-
 
 function editarProduto($cod_produto, $nome, $descricao, $preco, $cod_categoria, $imagem, $estoque_minimo, $estoque_maximo){
     $sql = "UPDATE produto SET nome = '$nome', descricao = '$descricao', preco = '$preco',cod_categoria = '$cod_categoria', imagem= '$imagem', estoque_minimo = '$estoque_minimo', estoque_maximo = '$estoque_maximo'  WHERE cod_produto = $cod_produto";

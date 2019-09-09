@@ -35,7 +35,7 @@
     
      <?php include('cabecalho.php');?>
 
-    <body class="container">
+    <body>
         
         <div class="corpinho">
             <div class="caixinha">
@@ -43,6 +43,9 @@
         <a href="./categoria/listarCategorias">Categoria</a>
         <a href="./produto/listarProdutos">Produto</a>
         <a href="./cliente/listarClientes">Cliente</a>
+        <a href="./cupom/listarCupom">Cupom</a>
+        <a href="./formadepagamento//listarFormasDePagamento">Forma de Pagamento</a>
+        
         
         <main class="container">
          
@@ -51,7 +54,8 @@
         </main>
 
         </div>
-        </div>
+            </div>
+       
          <br><br>
     </body>
     <?php include('rodape.php');?>
