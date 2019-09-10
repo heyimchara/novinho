@@ -15,7 +15,7 @@
                 <td><?=$endereco['logradouro']?></td>
                 <td><a href="./endereco/ver/<?=$endereco['idEndereco']?>">Ver</a></td>
                 <td><a href="./endereco/deletar/<?=$endereco['idEndereco']?>/<?=$endereco['cod_cliente']?>">Deletar</a></td>
-                <td><a href="./endereco/editar/<?=$endereco['idEndereco']?>">Editar</a></td>
+                <td><a href="./endereco/editar/<?=$endereco['idEndereco']?>/<?=$endereco['cod_cliente']?>">Editar</a></td>
             </tr>
         <?php endforeach; ?>
    </table> 

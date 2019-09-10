@@ -65,7 +65,7 @@ function deletar($idEndereco, $idcliente){
     $msg = deletarEndereco($idEndereco);
     redirecionar("cliente/ver/$idcliente");
 }
-function editar($idEndereco){
+function editar($idEndereco, $idcliente){
      if (ehPost()){
       $logradouro = $_POST["logradouro"];
       $numero = $_POST["numero"];
@@ -75,7 +75,7 @@ function editar($idEndereco){
       $cep = $_POST["cep"];
         
       editarEndereco($idEndereco,$logradouro,$numero,$complemento, $bairro,$cidade,$cep);
-      redirecionar("endereco/listarEnderecos");
+       redirecionar("cliente/ver/$idcliente");
 } else{
     $dados["endereco"] = pegarEnderecoPorId($idEndereco);
     exibir("endereco/formulario", $dados);
