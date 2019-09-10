@@ -23,5 +23,3 @@
         <br>
         <a href="./produto/adicionar" class="btn btn-primary">Novo Produto</a>       
      
-        
-

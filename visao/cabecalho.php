@@ -85,7 +85,7 @@ $(document).ready(function(){
 </div>
     
 <div class="m">
-  <a href="carrinho.html"><p id= "icon_carrinho" style="color: black" ><i style="font-size:40px" class="fi-shopping-cart"></i></p></a>
+  <a href="sacola/mostrar"><p id= "icon_carrinho" style="color: black" ><i style="font-size:40px" class="fi-shopping-cart"></i></p></a>
 </div>
 </div> 
 

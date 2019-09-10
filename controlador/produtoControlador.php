@@ -98,28 +98,17 @@ function editar($cod_produto){
 } 
 }
 
-function buscar(){
-    if (ehPost()){
-    $nome = $_POST["nome"];
-    $dados = array();
-    $dados["produtos"] = pegarProdutoPorNome($nome);
-    exibir("produtos/listar", $dados);
-}else{
-    exibir("produtos/listar", $dados);
-}
-}
-
-//Adrielly
-//function comprar($cod_produto){
+function comprar($cod_produto){
    // unset($_SESSION["carrinho"]); //p apagar sessão
-   // if(isset($_SESSION["carrinho"])) {
-   // $produtos = $_SESSION["carrinho"]; 
-   // } else {
-   //     $produtos = array();
-   // }
-   // $produtos[] = $cod_produto;
-   // $_SESSION["carrinho"] = $produtos;
-   //redirecionar("carrinho/mostrar"); 
-//}
+    if(isset($_SESSION["carrinho"])) {
+   $cadastro_produto = $_SESSION["carrinho"]; 
+   } else {
+        $cadastro_produto = array();
+   }
+   $cadastro_produto[] = $cod_produto;
+   $_SESSION["carrinho"] = $cadastro_produto;
+   redirecionar("sacola/mostrar"); 
+}
     
+
 
