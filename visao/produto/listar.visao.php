@@ -13,10 +13,10 @@
         <?php foreach ($produtos as $produto): ?> 
             <tr>
                <td><?=$produto['cod_produto']?></td>
-                <td><?=$produto['nome']?></td>
-                <td><a href="./produto/ver/<?=$produto['cod_produto']?>">Ver</a></td>
-                <td><a href="./produto/deletar/<?=$produto['cod_produto']?>">Deletar</a></td>
-                <td><a href="./produto/editar/<?=$produto['cod_produto']?>">Editar</a></td>    
+               <td><?=$produto['nome']?></td>
+               <td><a href="./produto/ver/<?=$produto['cod_produto']?>">Ver</a></td>
+               <td><a href="./produto/deletar/<?=$produto['cod_produto']?>">Deletar</a></td>
+               <td><a href="./produto/editar/<?=$produto['cod_produto']?>">Editar</a></td>    
      </tr>
         <?php endforeach; ?>
    </table> 

@@ -40,4 +40,14 @@ function editarProduto($cod_produto, $nome, $descricao, $preco, $cod_categoria, 
      if(!$resultado){ die('Erro ao editar produto!' . mysqli_error($conexao)); }
     return 'Produto alterado com sucesso!';
 }
+
+function PegarProdutoPorNome($nome){
+    $sql = "SELECT * FROM produto WHERE upper(nome) like upper('%".$nome."%')";
+    $result = mysqli_query(conn(), $sql);
+    $produtos = array();
+    while($linha = mysqli_fetch_assoc($result)){
+        $produtos[] = $linha;
+    }
+    return $produtos;
+}
 ?>

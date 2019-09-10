@@ -74,7 +74,7 @@ $(document).ready(function(){
 </div>
 <div class="" style="padding:3%;width:28%;">
   <form action="./produto/buscar" method="POST">
-  <input id="barra_pesquisa" type="text" name="nome" placeholder = " Pesquisa..." style="margin:0px;" >
+  <input id="barra_pesquisa" name="nome" type="text" placeholder = " Pesquisa..." style="margin:0px;" >
   </form>
 </div>
 <div class="e">

@@ -110,5 +110,14 @@ function comprar($cod_produto){
    redirecionar("sacola/mostrar"); 
 }
     
-
+function buscar(){
+    if (ehPost()) {
+        $nome = $_POST["nome"];
+        $dados = array();
+        $dados["produtos"] = PegarProdutoPorNome($nome);
+        exibir('produto/listar', $dados);
+    } else {
+        exibir('produto/listar', $dados);
+    }
+}
 
