@@ -3,6 +3,7 @@
 require_once 'modelo/cupomModelo.php';
 require_once 'servico/validacaoServico.php';
 
+/** admin */
 function adicionar(){
     if (ehPost()){
         $nome = $_POST["nome"];
@@ -29,21 +30,26 @@ if(count($erros) > 0){
      }    
 }
 
+/** anon */
 function listarCupom(){
     $dados = array();
     $dados["cupons"] = pegarTodosCupom();
     exibir("cupom/listar", $dados);
 }
 
+/** admin */
 function ver($id_cupom){
     $dados["cupom"] = pegarCupomPorId($id_cupom);
     exibir("cupom/visualizar", $dados);
 }
 
+/** admin */
 function deletar($id_cupom){
     $msg = deletarCupom($id_cupom);
     redirecionar("cupom/listarCupom");
 }
+
+/** admin */
 function editar($id_cupom){
      if (ehPost()){
       $nome = $_POST["nome"];

@@ -3,10 +3,12 @@ require_once 'servico/validacaoServico.php';
 require_once 'modelo/categoriaModelo.php';
 require_once 'modelo/produtoModelo.php';
 
+/** anon */
 function index(){
     redirecionar("produto/listarProdutos");
 }
 
+/** anon */
 function visualizar (){
     $visualizar = array();
     $visualizar["nomeProd"] = "Moletom";
@@ -16,6 +18,7 @@ function visualizar (){
     exibir("produto/visualizar", $visualizar);
 }
 
+/** anon */
 function adicionar(){
         
    if (ehPost()){
@@ -63,22 +66,28 @@ function adicionar(){
   
 }
 
+
+/** anon */
 function listarProdutos(){
     $dados = array();
     $dados["produtos"] = pegarTodosProdutos();
     exibir("produto/listar", $dados);
 }
 
+/** anon */
 function ver($cod_produto){
     $dados["produto"] = pegarProdutoPorId($cod_produto);
     exibir("produto/visualizar", $dados);
 }
 
+
+/** admin */
 function deletar($cod_produto){
     $msg = deletarProduto($cod_produto);
     redirecionar("produto/listarProdutos");
 }
 
+/** admin */
 function editar($cod_produto){
      if (ehPost()){
        $nome = $_POST["nome"];
@@ -98,6 +107,7 @@ function editar($cod_produto){
 } 
 }
 
+/** user */
 function comprar($cod_produto){
    // unset($_SESSION["carrinho"]); //p apagar sessão
     if(isset($_SESSION["carrinho"])) {
@@ -109,7 +119,8 @@ function comprar($cod_produto){
    $_SESSION["carrinho"] = $cadastro_produto;
    redirecionar("sacola/mostrar"); 
 }
-    
+
+/** anon */ 
 function buscar(){
     if (ehPost()) {
         $nome = $_POST["nome"];

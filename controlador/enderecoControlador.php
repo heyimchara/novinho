@@ -4,6 +4,7 @@ require_once 'servico/validacaoServico.php';
 require_once 'modelo/enderecoModelo.php';
 require_once 'modelo/clienteModelo.php';
 
+/** user */ 
 function adicionar($cod_cliente){
     if (ehPost()){
         $logradouro = strip_tags($_POST["logradouro"]);
@@ -50,21 +51,26 @@ if(count($erros) > 0){
      }    
 }
 
+/** user */ 
 function listarEnderecos(){
     $dados = array();
     $dados["enderecos"] = pegarEnderecosPorUsuario($cod_cliente);
     exibir("endereco/listar", $dados);
 }
 
+/** admin */
 function ver($idEndereco){
     $dados["endereco"] = pegarEnderecoPorId($idEndereco);
     exibir("endereco/visualizar", $dados);
 }
 
+/** admin */
 function deletar($idEndereco, $idcliente){
     $msg = deletarEndereco($idEndereco);
     redirecionar("cliente/ver/$idcliente");
 }
+
+/** user */   
 function editar($idEndereco, $idcliente){
      if (ehPost()){
       $logradouro = $_POST["logradouro"];

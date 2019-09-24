@@ -4,6 +4,7 @@ require_once 'servico/validacaoServico.php';
 require_once 'modelo/clienteModelo.php';
 require_once 'modelo/enderecoModelo.php';
 
+/** anon */ 
 function cadastro(){
     if (ehPost()){
        $nome = $_POST["nome"];
@@ -43,6 +44,7 @@ function cadastro(){
    } 
 }
 
+/** anon */ 
 function contato(){
     if (ehPost()){
         $nome = $_POST["nome"];
@@ -63,12 +65,15 @@ function contato(){
     }  
 }
 
+/** admin */
 function listarClientes(){
     $dados = array();
     $dados["clientes"] = pegarTodosClientes();
     exibir("cliente/listar", $dados);
 }
 
+
+/** user */
 function ver($cod_cliente){
     $dados = array();
     $dados["cliente"] = pegarUsuarioPorId($cod_cliente);
@@ -76,11 +81,13 @@ function ver($cod_cliente){
     exibir("cliente/visualizar", $dados);
 }
 
+/** admin */
 function deletar($cod_cliente){
     $msg = deletarCliente($cod_cliente);
     redirecionar("cliente/listarClientes");
 }
 
+/** user */   
 function editar($cod_cliente){
      if (ehPost()){
       $nome = $_POST["nome"];
@@ -99,6 +106,7 @@ function editar($cod_cliente){
 } 
 }
 
+/** user */  
 function adicionar ($idusuario){
     if (ehPost()) {
          $logradouro = strip_tags($_POST["logradouro"]);

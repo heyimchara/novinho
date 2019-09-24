@@ -3,10 +3,12 @@
 require_once 'modelo/formadepagamentoModelo.php';
 require_once 'servico/validacaoServico.php';
 
+/** anon */
 function index(){
     redirecionar("formadepagamento/listarFormasDePagamento");
 }
 
+/** admin */
 function adicionar(){
     if (ehPost()){
         $descricao = $_POST["descricao"];
@@ -29,21 +31,26 @@ if(count($erros) > 0){
      }    
 }
 
+/** user */
 function listarFormasDePagamento(){
     $dados = array();
     $dados["formasdepagamento"] = pegarTodasFormasDePagamento();
     exibir("formadepagamento/listar", $dados);
 }
 
+/** admin */
 function ver($cod_formadepagamento){
     $dados["formadepagamento"] = pegarFormaDePagamentoPorId($cod_formadepagamento);
     exibir("formadepagamento/visualizar", $dados);
 }
 
+/** admin */
 function deletar($cod_formadepagamento){
     $msg = deletarFormaDePagamento($cod_formadepagamento);
     redirecionar("formadepagamento/listarFormasDePagamento");
 }
+
+/** user */ 
 function editar($cod_formadepagamento){
      if (ehPost()){
        $descricao = $_POST["descricao"];
