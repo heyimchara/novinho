@@ -4,6 +4,8 @@ require_once 'servico/validacaoServico.php';
 require_once 'modelo/clienteModelo.php';
 require_once 'modelo/enderecoModelo.php';
 
+
+
 /** anon */ 
 function cadastro(){
     if (ehPost()){
@@ -14,6 +16,11 @@ function cadastro(){
        $sexo = $_POST ["sexo"];
        $dataNasc = $_POST ["dataNasc"];
        $tipousuario = $_POST ["tipousuario"];
+      
+       
+      
+           
+      
  
        $erros = array();
        
@@ -44,7 +51,7 @@ function cadastro(){
    } 
 }
 
-/** anon */ 
+/** user */ 
 function contato(){
     if (ehPost()){
         $nome = $_POST["nome"];
@@ -96,7 +103,11 @@ function editar($cod_cliente){
       $cpf = $_POST["cpf"];
       $sexo = $_POST ["sexo"];
       $dataNasc = $_POST ["dataNasc"];
-      $tipousuario = $_POST ["tipousuario"];
+      
+       if (acessoPegarPapelDoUsuario() == 'admin'){
+            $tipousuario = $_POST ["tipousuario"];
+       }
+ 
        
        editarCliente($cod_cliente,$nome,$cpf,$senha,$email,$sexo,$tipousuario,$dataNasc);
        redirecionar("cliente/listarClientes");

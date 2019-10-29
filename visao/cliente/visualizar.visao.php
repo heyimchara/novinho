@@ -14,7 +14,10 @@
 require_once 'visao/endereco/listar.visao.php';
 ?>
 
-<a href = "./endereco/adicionar/<?=$cliente['cod_cliente']?>">Novo Endereço</a>
-           
+<a href = "./endereco/adicionar/<?=$cliente['cod_cliente']?>">Novo Endereço</a><br><br>
+  
+
+<a href = "./login/logout">Sair</a>
+  
        
    

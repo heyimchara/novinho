@@ -39,12 +39,30 @@
         
         <div class="corpinho">
             <div class="caixinha">
-
+                
+                
+ <?php if (acessoPegarPapelDoUsuario() == 'admin') { ?>              
         <a href="./categoria/listarCategorias">Categoria</a>
         <a href="./produto/listarProdutos">Produto</a>
         <a href="./cliente/listarClientes">Cliente</a>
-        <a href="./cupom/listarCupom">Cupom</a>
-        <a href="./formadepagamento//listarFormasDePagamento">Forma de Pagamento</a>
+	<a href="./cupom/listarCupom"> Cupom </a>
+        <a href="./formadepagamento/listarFormasDePagamento">Forma de Pagamento</a>
+<?php }
+elseif (acessoPegarPapelDoUsuario() == 'user'){  ?>
+        <a href="./produto/listarProdutos">Produto</a>
+        
+<?php }
+else { ?>
+    <a href="./produto/listarProdutos">Produto</a>
+    
+<?php }?>
+      
+<?php 
+       // <a href="./categoria/listarCategorias">Categoria</a>
+        //<a href="./produto/listarProdutos">Produto</a>
+      //  <a href="./cliente/listarClientes">Cliente</a>
+       
+  ?>     
         
         
         <main class="container">

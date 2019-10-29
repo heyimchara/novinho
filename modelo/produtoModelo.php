@@ -1,8 +1,8 @@
 <?php
    
-function adicionarProduto($nome,$descricao,$preco,$cod_categoria,$imagem,$estoque_minimo,$estoque_maximo){
+function adicionarProduto($nome,$descricao,$preco,$cod_categoria,$destino,$estoque_minimo,$estoque_maximo){
     $comando = "INSERT INTO produto (nome, preco, descricao, cod_categoria, imagem, estoque_minimo, estoque_maximo)"
-            . "VALUES ('$nome', '$preco', '$descricao', '$cod_categoria', '$imagem', '$estoque_minimo', '$estoque_maximo')";
+            . "VALUES ('$nome', '$preco', '$descricao', '$cod_categoria', '$destino', '$estoque_minimo', '$estoque_maximo')";
     $resultado = mysqli_query($conexao = conn(), $comando);
     if(!$resultado){ die('Erro no cadastro!' . mysqli_error($conexao));}
     return 'Cadastrado com sucesso!';
@@ -34,8 +34,8 @@ function deletarProduto($cod_produto){
       return 'Produto deletado com sucesso!';
 }
 
-function editarProduto($cod_produto, $nome, $descricao, $preco, $cod_categoria, $imagem, $estoque_minimo, $estoque_maximo){
-    $sql = "UPDATE produto SET nome = '$nome', descricao = '$descricao', preco = '$preco',cod_categoria = '$cod_categoria', imagem= '$imagem', estoque_minimo = '$estoque_minimo', estoque_maximo = '$estoque_maximo'  WHERE cod_produto = $cod_produto";
+function editarProduto($cod_produto, $nome, $descricao, $preco, $cod_categoria, $destino, $estoque_minimo, $estoque_maximo){
+    $sql = "UPDATE produto SET nome = '$nome', descricao = '$descricao', preco = '$preco',cod_categoria = '$cod_categoria', imagem= '$destino', estoque_minimo = '$estoque_minimo', estoque_maximo = '$estoque_maximo'  WHERE cod_produto = $cod_produto";
     $resultado = mysqli_query($conexao = conn(), $sql);
      if(!$resultado){ die('Erro ao editar produto!' . mysqli_error($conexao)); }
     return 'Produto alterado com sucesso!';

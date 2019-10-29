@@ -30,7 +30,7 @@ if(count($erros) > 0){
      }    
 }
 
-/** anon */
+/** admin */
 function listarCupom(){
     $dados = array();
     $dados["cupons"] = pegarTodosCupom();

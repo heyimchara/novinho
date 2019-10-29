@@ -1,16 +1,16 @@
 <?php
 
-require_once "modelo/usuarioModelo.php";
+require_once "modelo/clienteModelo.php";
 
 /** anon */
 function index() {
     if (ehPost()) {
         extract($_POST);
-        $usuario = pegarUsuarioPorEmailSenha($email, $senha);
+        $cliente = pegarUsuarioPorEmailSenha($email, $senha);
         
-        if (acessoLogar($usuario)) {
+        if (acessoLogar($cliente)) {
             alert("bem vindo" . $login);
-            redirecionar("usuario");
+            redirecionar("produto/listarProdutos");
         } else {
             alert("usuario ou senha invalidos!");
         }
@@ -22,7 +22,7 @@ function index() {
 function logout() {
     acessoDeslogar();
     alert("deslogado com sucesso!");
-    redirecionar("usuario");
+    redirecionar("produto/listarProdutos");
 }
 
 ?>

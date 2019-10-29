@@ -1,9 +1,12 @@
 <?php
 require 'modelo/produtoModelo.php';
 
+/** user */
 function index() {
         exibir("carrinho/listar");
 }
+
+/** user */
 function mostrar() {
     $total = 0;
     $todos = array();
@@ -23,11 +26,14 @@ function mostrar() {
     $dados["total"] = $total;
     exibir('sacola/listar', $dados);
 }
+
+/** user */
 function limpar(){
    unset($_SESSION['carrinho']);
    redirecionar("sacola/mostrar");
 }
 
+/** user */
 function remover($id) {
     $cadastro_produto = $_SESSION["carrinho"];
     foreach ($cadastro_produto as $key => $produto){

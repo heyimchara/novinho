@@ -58,13 +58,13 @@ function listarEnderecos(){
     exibir("endereco/listar", $dados);
 }
 
-/** admin */
+/** user */
 function ver($idEndereco){
     $dados["endereco"] = pegarEnderecoPorId($idEndereco);
     exibir("endereco/visualizar", $dados);
 }
 
-/** admin */
+/** user */
 function deletar($idEndereco, $idcliente){
     $msg = deletarEndereco($idEndereco);
     redirecionar("cliente/ver/$idcliente");

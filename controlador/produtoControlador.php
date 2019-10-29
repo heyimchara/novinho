@@ -18,7 +18,7 @@ function visualizar (){
     exibir("produto/visualizar", $visualizar);
 }
 
-/** anon */
+/** admin */
 function adicionar(){
         
    if (ehPost()){
@@ -26,9 +26,13 @@ function adicionar(){
        $preco = $_POST["preco"];
        $descricao = $_POST["descricao"];
        $cod_categoria = $_POST["cod_categoria"];
-       $imagem = $_POST["imagem"];
+       $destino = './publico/img/' . $_FILES['imagem']['name'];
+       $arquivo_tmp = $_FILES['imagem']['tmp_name'];
        $estoque_minimo = $_POST["estoque_minimo"];
        $estoque_maximo = $_POST["estoque_maximo"];
+       
+       move_uploaded_file( $arquivo_tmp, $destino );
+       
        
        $erros = array();
        
@@ -40,9 +44,6 @@ function adicionar(){
       }
       if (valida_nao_vazio($preco) != NULL){
           $erros[]= "Informe um valor valido.";    
-      }
-      if (valida_nao_vazio($imagem) != NULL){
-          $erros[]= "Você deve inserir um valor válido.";    
       }
       if (valida_nao_vazio($estoque_minimo) != NULL){
           $erros[]= "Você deve inserir um valor válido.";    
@@ -56,7 +57,7 @@ function adicionar(){
           $dados["erros"] = $erros;
           exibir("produto/formulario", $dados);
       }else{
-           $mensagem = adicionarProduto($nome, $descricao, $preco, $cod_categoria, $imagem, $estoque_minimo, $estoque_maximo);
+           $mensagem = adicionarProduto($nome, $descricao, $preco, $cod_categoria, $destino, $estoque_minimo, $estoque_maximo);
         redirecionar("produto/listarProdutos");
       }     
     }else{
@@ -94,11 +95,15 @@ function editar($cod_produto){
        $preco = $_POST["preco"];
        $descricao = $_POST["descricao"];
        $cod_categoria = $_POST["cod_categoria"];
-       $imagem = $_POST["imagem"];
+      $destino = './publico/img/' . $_FILES['imagem']['name'];
+       $arquivo_tmp = $_FILES['imagem']['tmp_name'];
        $estoque_minimo = $_POST["estoque_minimo"];
        $estoque_maximo = $_POST["estoque_maximo"];
+     
+        move_uploaded_file( $arquivo_tmp, $destino );
        
-       editarProduto($cod_produto, $nome, $descricao, $preco, $cod_categoria, $imagem, $estoque_minimo, $estoque_maximo);
+       
+       editarProduto($cod_produto, $nome, $descricao, $preco, $cod_categoria, $destino, $estoque_minimo, $estoque_maximo);
        redirecionar("produto/listarProdutos");
 } else{
     $dados["produto"] =  pegarProdutoPorId($cod_produto);

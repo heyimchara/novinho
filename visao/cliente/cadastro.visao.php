@@ -14,7 +14,13 @@
             </select>
             <br><br>
             Senha: <input type="password" name="senha" value="<?=@$cliente['senha']?>"><br><br>
-            Tipo de usuario: <input type ="text" name="tipousuario" value="<?=@$cliente['tipousuario']?>"><br><br>
+            
+ 
+            Tipo de usuario:<br><br> <input type="radio" name="tipousuario" value="user"><label>User</label>
+                        <input type="radio" name="tipousuario" value="admin"> <label>Admin</label> <br>
+
+   
+            
             <button>Enviar</button><br><br> <a href="./endereco/adicionar">Cadastrar Endereço</a>
             <br><br>
             

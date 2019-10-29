@@ -1,8 +1,8 @@
 <table class="table">
             <thead>
                 <tr>
-                    <th>IdEndereco</th>
-                    <th>Ver Endereço</th>
+                    <th>Endereço</th>
+                    <th>Ver</th>
                     <th>Deletar</th>
                     <td>Editar</td>
                 </tr>
@@ -11,7 +11,7 @@
        
         <?php foreach ($enderecos as $endereco): ?> 
             <tr>
-                <td><?=$endereco['idEndereco']?></td>
+              
                 <td><?=$endereco['logradouro']?></td>
                 <td><a href="./endereco/ver/<?=$endereco['idEndereco']?>">Ver</a></td>
                 <td><a href="./endereco/deletar/<?=$endereco['idEndereco']?>/<?=$endereco['cod_cliente']?>">Deletar</a></td>

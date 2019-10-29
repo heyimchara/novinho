@@ -81,7 +81,7 @@ $(document).ready(function(){
     <p style="text-align:center;"><a href="produto/listarProdutos"><img src="publico/img/logo.png"></a></p>
 </div>
 <div class="e">
-  <a href="login.html"><p id= "icon_Minha_conta" style="color:black;font-size:25px;text-align:center;padding:1%;"><i class="fi-torso" style="margin-right:10px;"></i>Minha Conta</p></a>
+    <a href="cliente/ver/<?=acessoPegarUsuarioLogado();?>"><p id= "icon_Minha_conta" style="color:black;font-size:25px;text-align:center;padding:1%;"><i class="fi-torso" style="margin-right:10px;"></i>Minha Conta</p></a>
 </div>
     
 <div class="m">

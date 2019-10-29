@@ -11,5 +11,8 @@
         <a href="sacola/limpar">Limpar Carrinho</a><br>
         <a href="produto/listarProdutos">Continuar Comprando</a>
         <p>Total <span class="price" style="color:black"><b>R$ <?= $total?></b></span></p>
+        <br>
+        <a href="pedido/salvarPedido" class="btn btn-primary">Finalizar Compra</a>       
+
     </div>
 </div>

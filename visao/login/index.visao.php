@@ -3,12 +3,14 @@
 <form method="POST" action="">
 
 
-    <label for="login">email:</label>
+    <label for="login">Email:</label>
     <input id="login" class="form-control" type="text" name="email">
 
-    <label for="passwd">senha:</label>
+    <label for="passwd">Senha:</label>
     <input id="passwd" class="form-control" type="password" name="senha">
-
+    
+    <a href="cliente/cadastro"><p>Cadastra-se aqui!</p></a>
+    
     <button type="submit" class="btn btn-primary">vai login</button>
 
 </form>
